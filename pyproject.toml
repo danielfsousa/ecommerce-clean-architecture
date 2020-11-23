@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "ecommerce-clean-code"
+version = "0.1.0"
+description = "Example application code for the 'Architecture Patterns with Python' book"
+authors = ["Daniel Sousa <sousa.dfs@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/danielfsousa/ecommerce-clean-code"
+repository = "https://github.com/danielfsousa/ecommerce-clean-code"
+keywords = ["clean code", "ddd", "python", "ecommerce"]
+
+[tool.taskipy.tasks]
+clean = "python src/tasks/clean.py"
+dev = "FLASK_ENV=development FLASK_RUN_PORT=8058 FLASK_DEBUG=0 FLASK_APP=src/main.py flask run"
+test = "pytest --tb=short"
+"test:watch" = "ls *.py | entr pytest --tb=short"
+format = "black ."
+lint = "flake8"
+types = "mypy src"
+validate = "pre-commit"
+setup = "task install_precommit"
+install_precommit = "pre-commit install"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+black = "^20.8b1"
+flake8-annotations = "^2.4.1"
+flake8-bugbear = "^20.1.4"
+flake8-isort = "^4.0.0"
+flake8-bandit = "^2.1.2"
+flake8 = "^3.8.4"
+pre-commit = "^2.9.0"
+taskipy = "^1.4.0"
+mypy = "^0.790"
+pytest = "^6.1.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

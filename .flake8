@@ -2,7 +2,6 @@
 max-line-length = 88
 max-complexity = 10
 select = B,B9,BLK,C,E,F,I,S,W
-; select = ANN,B,B9,BLK,C,E,F,I,S,W
 ignore = E203,E501,W503,S106,S403,S301
 per-file-ignores =
     tests/*:S101,ANN

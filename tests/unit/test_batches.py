@@ -1,6 +1,6 @@
 from datetime import date
 
-from model import Batch, OrderLine
+from src.domain.model import Batch, OrderLine
 
 
 def test_allocating_to_a_batch_reduces_the_available_quantity():
